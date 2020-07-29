@@ -1,24 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HiR-xT-CBC">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Login From Controller-->
+        <scene sceneID="Cf7-xk-pbd">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="HiR-xT-CBC" customClass="LoginFromController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gYJ-kb-PXR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7I8-se-4r7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G94-cu-n5Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfE-bw-gOY">
+                                                <rect key="frame" x="8" y="8" width="398" height="36"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwp-pk-cfC">
+                                                <rect key="frame" x="8" y="776" width="398" height="42"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
+                                                <state key="normal" title="SIGN IN"/>
+                                                <connections>
+                                                    <action selector="pressedSingInButton:" destination="HiR-xT-CBC" eventType="touchUpInside" id="ZGn-DQ-0U4"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tPd-3Y-X6R">
+                                                <rect key="frame" x="0.0" y="330.5" width="414" height="157.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7a-XC-Zgh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="25"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Enter Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NGQ-pm-cfO">
+                                                        <rect key="frame" x="0.0" y="38" width="414" height="37.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rl-Ke-YEr">
+                                                        <rect key="frame" x="0.0" y="83.5" width="414" height="30"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="25"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XzO-hx-uwR">
+                                                        <rect key="frame" x="0.0" y="121.5" width="414" height="36"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="NGQ-pm-cfO" secondAttribute="trailing" id="9Ay-Mj-Oc8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="g7a-XC-Zgh" secondAttribute="trailing" id="DLy-5a-xPy"/>
+                                                    <constraint firstAttribute="trailing" secondItem="XzO-hx-uwR" secondAttribute="trailing" id="Dmt-Ak-82D"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3rl-Ke-YEr" secondAttribute="trailing" id="ijr-Z9-NzN"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="tPd-3Y-X6R" firstAttribute="centerY" secondItem="G94-cu-n5Y" secondAttribute="centerY" id="BVU-jQ-ljL"/>
+                                            <constraint firstItem="tPd-3Y-X6R" firstAttribute="centerX" secondItem="G94-cu-n5Y" secondAttribute="centerX" id="EPJ-Zu-NPc"/>
+                                            <constraint firstItem="tPd-3Y-X6R" firstAttribute="leading" secondItem="G94-cu-n5Y" secondAttribute="leading" id="dTI-7z-lWW"/>
+                                            <constraint firstAttribute="trailing" secondItem="tPd-3Y-X6R" secondAttribute="trailing" id="z5s-5f-65w"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="G94-cu-n5Y" firstAttribute="leading" secondItem="7I8-se-4r7" secondAttribute="leading" id="0kR-Im-D21"/>
+                                    <constraint firstAttribute="bottom" secondItem="G94-cu-n5Y" secondAttribute="bottom" id="9Yp-T2-Oh0"/>
+                                    <constraint firstItem="G94-cu-n5Y" firstAttribute="width" secondItem="7I8-se-4r7" secondAttribute="width" id="DvA-ne-85w"/>
+                                    <constraint firstItem="G94-cu-n5Y" firstAttribute="top" secondItem="7I8-se-4r7" secondAttribute="top" id="S6w-RP-0vG"/>
+                                    <constraint firstItem="G94-cu-n5Y" firstAttribute="height" secondItem="7I8-se-4r7" secondAttribute="height" priority="250" id="lVm-al-AGv"/>
+                                    <constraint firstAttribute="trailing" secondItem="G94-cu-n5Y" secondAttribute="trailing" id="zbn-1X-5DM"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="EC1-y2-xFj"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="PFY-ty-Txc"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WLs-ia-2Bi" firstAttribute="trailing" secondItem="7I8-se-4r7" secondAttribute="trailing" id="6pQ-1F-QbM"/>
+                            <constraint firstItem="nfE-bw-gOY" firstAttribute="leading" secondItem="WLs-ia-2Bi" secondAttribute="leading" constant="8" id="93R-3k-ZEr"/>
+                            <constraint firstItem="7I8-se-4r7" firstAttribute="top" secondItem="WLs-ia-2Bi" secondAttribute="top" id="Cjp-PA-CW5"/>
+                            <constraint firstItem="WLs-ia-2Bi" firstAttribute="bottom" secondItem="Hwp-pk-cfC" secondAttribute="bottom" id="Hwy-35-pOE"/>
+                            <constraint firstItem="Hwp-pk-cfC" firstAttribute="leading" secondItem="WLs-ia-2Bi" secondAttribute="leading" constant="8" id="TAP-2g-Yud"/>
+                            <constraint firstItem="WLs-ia-2Bi" firstAttribute="trailing" secondItem="nfE-bw-gOY" secondAttribute="trailing" constant="8" id="X6F-dU-Bft"/>
+                            <constraint firstItem="WLs-ia-2Bi" firstAttribute="bottom" secondItem="7I8-se-4r7" secondAttribute="bottom" id="XBe-rt-wmj"/>
+                            <constraint firstItem="nfE-bw-gOY" firstAttribute="top" secondItem="WLs-ia-2Bi" secondAttribute="top" constant="8" id="dNj-wz-Su1"/>
+                            <constraint firstItem="WLs-ia-2Bi" firstAttribute="trailing" secondItem="Hwp-pk-cfC" secondAttribute="trailing" constant="8" id="ocU-ir-AZo"/>
+                            <constraint firstItem="7I8-se-4r7" firstAttribute="leading" secondItem="WLs-ia-2Bi" secondAttribute="leading" id="wIC-lW-S9w"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WLs-ia-2Bi"/>
                     </view>
+                    <connections>
+                        <outlet property="loginTextField" destination="NGQ-pm-cfO" id="sJe-6k-1Le"/>
+                        <outlet property="passwordTextField" destination="XzO-hx-uwR" id="KIn-pi-Uah"/>
+                        <outlet property="scrollView" destination="7I8-se-4r7" id="3ef-CG-m38"/>
+                        <outlet property="signInButton" destination="Hwp-pk-cfC" id="cLt-c9-heF"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CvN-0O-RCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-449.27536231884062" y="81.696428571428569"/>
         </scene>
     </scenes>
 </document>
