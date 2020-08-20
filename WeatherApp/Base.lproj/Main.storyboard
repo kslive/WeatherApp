@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HiR-xT-CBC">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,13 +17,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7I8-se-4r7">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G94-cu-n5Y">
-                                        <rect key="frame" x="0.0" y="-45" width="414" height="986"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfE-bw-gOY">
+                                                <rect key="frame" x="8" y="-36" width="398" height="36"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwp-pk-cfC">
-                                                <rect key="frame" x="8" y="801" width="398" height="42"/>
+                                                <rect key="frame" x="8" y="732" width="398" height="42"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
                                                 <state key="normal" title="SIGN IN"/>
                                                 <connections>
@@ -32,7 +38,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tPd-3Y-X6R">
-                                                <rect key="frame" x="0.0" y="330.5" width="414" height="157.5"/>
+                                                <rect key="frame" x="0.0" y="330.33333333333331" width="414" height="157.66666666666669"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7a-XC-Zgh">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
@@ -41,18 +47,18 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Enter Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NGQ-pm-cfO">
-                                                        <rect key="frame" x="0.0" y="38" width="414" height="37.5"/>
+                                                        <rect key="frame" x="0.0" y="38" width="414" height="37.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rl-Ke-YEr">
-                                                        <rect key="frame" x="0.0" y="83.5" width="414" height="30"/>
+                                                        <rect key="frame" x="0.0" y="83.666666666666686" width="414" height="30"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XzO-hx-uwR">
-                                                        <rect key="frame" x="0.0" y="121.5" width="414" height="36"/>
+                                                        <rect key="frame" x="0.0" y="121.66666666666669" width="414" height="36"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                                     </textField>
@@ -64,16 +70,9 @@
                                                     <constraint firstAttribute="trailing" secondItem="3rl-Ke-YEr" secondAttribute="trailing" id="ijr-Z9-NzN"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfE-bw-gOY">
-                                                <rect key="frame" x="9.5" y="85" width="396.5" height="36"/>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="30"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="tPd-3Y-X6R" firstAttribute="centerY" secondItem="G94-cu-n5Y" secondAttribute="centerY" constant="-83.75" id="BVU-jQ-ljL"/>
-                                            <constraint firstItem="nfE-bw-gOY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="G94-cu-n5Y" secondAttribute="leading" constant="9.5" id="D8a-OB-0qV"/>
+                                            <constraint firstItem="tPd-3Y-X6R" firstAttribute="centerY" secondItem="G94-cu-n5Y" secondAttribute="centerY" id="BVU-jQ-ljL"/>
                                             <constraint firstItem="tPd-3Y-X6R" firstAttribute="centerX" secondItem="G94-cu-n5Y" secondAttribute="centerX" id="EPJ-Zu-NPc"/>
                                             <constraint firstItem="tPd-3Y-X6R" firstAttribute="leading" secondItem="G94-cu-n5Y" secondAttribute="leading" id="dTI-7z-lWW"/>
                                             <constraint firstAttribute="trailing" secondItem="tPd-3Y-X6R" secondAttribute="trailing" id="z5s-5f-65w"/>
@@ -82,10 +81,10 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="G94-cu-n5Y" firstAttribute="leading" secondItem="7I8-se-4r7" secondAttribute="leading" id="0kR-Im-D21"/>
-                                    <constraint firstAttribute="bottom" secondItem="G94-cu-n5Y" secondAttribute="bottom" constant="-90" id="9Yp-T2-Oh0"/>
+                                    <constraint firstAttribute="bottom" secondItem="G94-cu-n5Y" secondAttribute="bottom" id="9Yp-T2-Oh0"/>
                                     <constraint firstItem="G94-cu-n5Y" firstAttribute="width" secondItem="7I8-se-4r7" secondAttribute="width" id="DvA-ne-85w"/>
-                                    <constraint firstItem="G94-cu-n5Y" firstAttribute="top" secondItem="7I8-se-4r7" secondAttribute="top" constant="-45" id="S6w-RP-0vG"/>
-                                    <constraint firstItem="G94-cu-n5Y" firstAttribute="height" secondItem="7I8-se-4r7" secondAttribute="height" priority="250" constant="90" id="lVm-al-AGv"/>
+                                    <constraint firstItem="G94-cu-n5Y" firstAttribute="top" secondItem="7I8-se-4r7" secondAttribute="top" id="S6w-RP-0vG"/>
+                                    <constraint firstItem="G94-cu-n5Y" firstAttribute="height" secondItem="7I8-se-4r7" secondAttribute="height" priority="250" id="lVm-al-AGv"/>
                                     <constraint firstAttribute="trailing" secondItem="G94-cu-n5Y" secondAttribute="trailing" id="zbn-1X-5DM"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="EC1-y2-xFj"/>
@@ -95,13 +94,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="WLs-ia-2Bi" firstAttribute="trailing" secondItem="7I8-se-4r7" secondAttribute="trailing" id="6pQ-1F-QbM"/>
-                            <constraint firstItem="7I8-se-4r7" firstAttribute="top" secondItem="WLs-ia-2Bi" secondAttribute="top" constant="-44" id="Cjp-PA-CW5"/>
-                            <constraint firstItem="nfE-bw-gOY" firstAttribute="top" secondItem="WLs-ia-2Bi" secondAttribute="top" constant="40" id="F3p-1J-Uet"/>
-                            <constraint firstItem="WLs-ia-2Bi" firstAttribute="bottom" secondItem="Hwp-pk-cfC" secondAttribute="bottom" constant="20" id="Hwy-35-pOE"/>
+                            <constraint firstItem="nfE-bw-gOY" firstAttribute="leading" secondItem="WLs-ia-2Bi" secondAttribute="leading" constant="8" id="93R-3k-ZEr"/>
+                            <constraint firstItem="7I8-se-4r7" firstAttribute="top" secondItem="WLs-ia-2Bi" secondAttribute="top" id="Cjp-PA-CW5"/>
+                            <constraint firstItem="WLs-ia-2Bi" firstAttribute="bottom" secondItem="Hwp-pk-cfC" secondAttribute="bottom" id="Hwy-35-pOE"/>
                             <constraint firstItem="Hwp-pk-cfC" firstAttribute="leading" secondItem="WLs-ia-2Bi" secondAttribute="leading" constant="8" id="TAP-2g-Yud"/>
-                            <constraint firstItem="WLs-ia-2Bi" firstAttribute="bottom" secondItem="7I8-se-4r7" secondAttribute="bottom" constant="-34" id="XBe-rt-wmj"/>
-                            <constraint firstItem="WLs-ia-2Bi" firstAttribute="trailing" secondItem="nfE-bw-gOY" secondAttribute="trailing" constant="8" id="aL3-ey-ncL"/>
-                            <constraint firstItem="nfE-bw-gOY" firstAttribute="width" secondItem="gYJ-kb-PXR" secondAttribute="width" multiplier="0.957333" id="kni-6c-bXy"/>
+                            <constraint firstItem="WLs-ia-2Bi" firstAttribute="trailing" secondItem="nfE-bw-gOY" secondAttribute="trailing" constant="8" id="X6F-dU-Bft"/>
+                            <constraint firstItem="WLs-ia-2Bi" firstAttribute="bottom" secondItem="7I8-se-4r7" secondAttribute="bottom" id="XBe-rt-wmj"/>
+                            <constraint firstItem="nfE-bw-gOY" firstAttribute="top" secondItem="WLs-ia-2Bi" secondAttribute="top" constant="8" id="dNj-wz-Su1"/>
                             <constraint firstItem="WLs-ia-2Bi" firstAttribute="trailing" secondItem="Hwp-pk-cfC" secondAttribute="trailing" constant="8" id="ocU-ir-AZo"/>
                             <constraint firstItem="7I8-se-4r7" firstAttribute="leading" secondItem="WLs-ia-2Bi" secondAttribute="leading" id="wIC-lW-S9w"/>
                         </constraints>
@@ -112,12 +111,6 @@
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="endColor">
                                 <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
-                                <real key="value" value="0.0"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
-                                <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -131,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CvN-0O-RCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="479.19999999999999" y="81.409295352323838"/>
+            <point key="canvasLocation" x="480" y="82"/>
         </scene>
         <!--All Cities Controller-->
         <scene sceneID="zSx-qP-ZYa">
@@ -143,14 +136,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityCell" id="Meb-pT-XmD" customClass="AllCitiesCell" customModule="WeatherApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="42.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Meb-pT-XmD" id="zan-B5-CQg">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="42.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cX6-er-9f6">
-                                            <rect key="frame" x="25" y="11" width="364" height="21.5"/>
+                                            <rect key="frame" x="25" y="11.000000000000002" width="364" height="20.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -191,14 +184,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCityCell" id="ES5-vC-iWX" customClass="MyCitiesCell" customModule="WeatherApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ES5-vC-iWX" id="8ME-3M-dTt">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hN-Du-e28">
-                                            <rect key="frame" x="25" y="11.5" width="364" height="21"/>
+                                            <rect key="frame" x="25" y="11.666666666666664" width="364" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
