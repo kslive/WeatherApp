@@ -12,18 +12,18 @@
         <scene sceneID="Cf7-xk-pbd">
             <objects>
                 <viewController id="HiR-xT-CBC" customClass="LoginFromController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gYJ-kb-PXR">
+                    <view key="view" contentMode="scaleToFill" id="gYJ-kb-PXR" customClass="GradientView" customModule="WeatherApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7I8-se-4r7">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G94-cu-n5Y" customClass="GradientView" customModule="WeatherApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G94-cu-n5Y">
                                         <rect key="frame" x="0.0" y="-45" width="414" height="986"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwp-pk-cfC">
-                                                <rect key="frame" x="8" y="825" width="398" height="42"/>
+                                                <rect key="frame" x="8" y="801" width="398" height="42"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
                                                 <state key="normal" title="SIGN IN"/>
                                                 <connections>
@@ -65,13 +65,12 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfE-bw-gOY">
-                                                <rect key="frame" x="9.5" y="109" width="396.5" height="36"/>
+                                                <rect key="frame" x="9.5" y="85" width="396.5" height="36"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-UltraLight" family="Apple SD Gothic Neo" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="tPd-3Y-X6R" firstAttribute="centerY" secondItem="G94-cu-n5Y" secondAttribute="centerY" constant="-83.75" id="BVU-jQ-ljL"/>
                                             <constraint firstItem="nfE-bw-gOY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="G94-cu-n5Y" secondAttribute="leading" constant="9.5" id="D8a-OB-0qV"/>
@@ -79,14 +78,6 @@
                                             <constraint firstItem="tPd-3Y-X6R" firstAttribute="leading" secondItem="G94-cu-n5Y" secondAttribute="leading" id="dTI-7z-lWW"/>
                                             <constraint firstAttribute="trailing" secondItem="tPd-3Y-X6R" secondAttribute="trailing" id="z5s-5f-65w"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                                <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -115,6 +106,20 @@
                             <constraint firstItem="7I8-se-4r7" firstAttribute="leading" secondItem="WLs-ia-2Bi" secondAttribute="leading" id="wIC-lW-S9w"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WLs-ia-2Bi"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" id="GWD-3n-020"/>
                     <connections>
