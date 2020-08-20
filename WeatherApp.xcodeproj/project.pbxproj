@@ -92,6 +92,26 @@
 			path = "Custom UI-compoments";
 			sourceTree = "<group>";
 		};
+		6B26D3E424EED27B00F44938 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6B978B4024D1589F0073AA20 /* Main.storyboard */,
+				6B978B4524D158A10073AA20 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6B26D3E524EED30500F44938 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6B978B3A24D1589F0073AA20 /* AppDelegate.swift */,
+				6B978B3C24D1589F0073AA20 /* SceneDelegate.swift */,
+				6B978B4324D158A10073AA20 /* Assets.xcassets */,
+				6B978B4824D158A10073AA20 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		6B978B2E24D1589F0073AA20 = {
 			isa = PBXGroup;
 			children = (
@@ -111,17 +131,13 @@
 		6B978B3924D1589F0073AA20 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				6B26D3E324EED18100F44938 /* Custom UI-compoments */,
 				6B0AC6A524D60B93008E4637 /* Weather */,
 				6B0AC6A024D5ECBE008E4637 /* MyCities */,
 				6B0AC69B24D5E831008E4637 /* AllCities */,
-				6B978B3A24D1589F0073AA20 /* AppDelegate.swift */,
-				6B978B3C24D1589F0073AA20 /* SceneDelegate.swift */,
+				6B26D3E324EED18100F44938 /* Custom UI-compoments */,
+				6B26D3E424EED27B00F44938 /* Views */,
+				6B26D3E524EED30500F44938 /* Supporting Files */,
 				6B978B4E24D15BF40073AA20 /* LoginFromController.swift */,
-				6B978B4024D1589F0073AA20 /* Main.storyboard */,
-				6B978B4324D158A10073AA20 /* Assets.xcassets */,
-				6B978B4524D158A10073AA20 /* LaunchScreen.storyboard */,
-				6B978B4824D158A10073AA20 /* Info.plist */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -354,7 +370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2PAJC487U;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WeatherApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -363,7 +379,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kiseleff.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -373,7 +389,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2PAJC487U;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/WeatherApp/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -382,7 +398,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kiseleff.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
