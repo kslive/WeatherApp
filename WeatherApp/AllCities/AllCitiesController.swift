@@ -10,10 +10,10 @@ import UIKit
 
 class AllCitiesController: UITableViewController {
     
-    var cities = ["Moscow",
-                  "Saint-P",
-                  "London",
-                  "Paris"]
+    var cities = [(title: "Moscow",emblem: #imageLiteral(resourceName: "Moscow")),
+                  (title: "Saint-P",emblem: #imageLiteral(resourceName: "Saint-P")),
+                  (title: "London",emblem: #imageLiteral(resourceName: "London")),
+                  (title: "Paris",emblem: #imageLiteral(resourceName: "Paris"))]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,8 @@ class AllCitiesController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath) as! AllCitiesCell
         let city = cities[indexPath.row]
-        cell.cityName.text = city
+        
+        cell.configure(city: city.title, emblem: city.emblem)
 
         return cell
     }

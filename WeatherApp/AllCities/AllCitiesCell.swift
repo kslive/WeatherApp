@@ -10,15 +10,38 @@ import UIKit
 
 class AllCitiesCell: UITableViewCell {
 
-    @IBOutlet weak var cityName: UILabel!
+    @IBOutlet weak var cityName: UILabel! {
+        didSet {
+            self.cityName.textColor = .black
+        }
+    }
+    @IBOutlet weak var cityEmblemView: UIImageView! {
+        didSet {
+            self.cityEmblemView.layer.borderColor = UIColor.white.cgColor
+            self.cityEmblemView.layer.borderWidth = 2
+            self.cityEmblemView.contentMode = .scaleAspectFill
+        }
+    }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        cityName.text = nil
+        cityEmblemView.image = nil
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        
+        cityEmblemView.clipsToBounds = true
+        cityEmblemView.layer.cornerRadius = cityEmblemView.frame.size.width / 2
     }
-
+    
+    func configure(city: String, emblem: UIImage) {
+        
+        cityName.text = city
+        cityEmblemView.image = emblem
+        
+        backgroundColor = .systemGreen
+    }
 }
