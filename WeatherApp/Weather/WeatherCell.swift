@@ -15,6 +15,7 @@ class WeatherCell: UICollectionViewCell {
             self.shadowView.layer.shadowOffset = .zero
             self.shadowView.layer.shadowOpacity = 0.75
             self.shadowView.layer.shadowRadius = 6
+            self.shadowView.layer.shadowColor = UIColor.systemBlue.cgColor
             self.shadowView.backgroundColor = .clear
         }
     }

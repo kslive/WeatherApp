@@ -298,12 +298,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rVm-o3-uL6">
                                 <rect key="frame" x="0.0" y="138" width="414" height="758"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Web-Lt-IkT">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
+                                <collectionViewLayout key="collectionViewLayout" id="oyM-Bq-YWB" customClass="WeatherCollectionViewLayout" customModule="WeatherApp" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherCell" id="YXY-uZ-ZOb" customClass="WeatherCell" customModule="WeatherApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -316,8 +311,8 @@
                                                     <rect key="frame" x="20" y="20" width="88" height="88"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="88" id="3lC-oI-O2d"/>
-                                                        <constraint firstAttribute="height" constant="88" id="u3J-jX-CWt"/>
+                                                        <constraint firstAttribute="width" constant="88" id="8Ju-iv-qmd"/>
+                                                        <constraint firstAttribute="height" constant="88" id="SFH-oI-STE"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fm1-j7-RCj">
@@ -332,10 +327,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="wNR-Ba-iUw" firstAttribute="centerX" secondItem="Fm1-j7-RCj" secondAttribute="centerX" id="iDN-Xz-wT2"/>
-                                                        <constraint firstAttribute="height" constant="88" id="mKH-JP-LaP"/>
-                                                        <constraint firstAttribute="width" constant="88" id="o4n-Go-8TQ"/>
-                                                        <constraint firstItem="wNR-Ba-iUw" firstAttribute="centerY" secondItem="Fm1-j7-RCj" secondAttribute="centerY" id="tmo-pY-mOl"/>
+                                                        <constraint firstAttribute="width" constant="88" id="Kc5-q5-xrH"/>
+                                                        <constraint firstAttribute="height" constant="88" id="WGa-Hr-Q9N"/>
+                                                        <constraint firstItem="wNR-Ba-iUw" firstAttribute="centerX" secondItem="Fm1-j7-RCj" secondAttribute="centerX" id="kVc-0o-DqC"/>
+                                                        <constraint firstItem="wNR-Ba-iUw" firstAttribute="centerY" secondItem="Fm1-j7-RCj" secondAttribute="centerY" id="rjC-4c-uaG"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00.00 0000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4A-Mn-CYW">
@@ -353,22 +348,19 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="uf9-Kf-G4f" firstAttribute="centerX" secondItem="yOy-ji-80h" secondAttribute="centerX" id="4gZ-OD-cIu"/>
                                                 <constraint firstAttribute="bottom" secondItem="v4A-Mn-CYW" secondAttribute="bottom" id="5gL-zS-gSv"/>
-                                                <constraint firstItem="Fm1-j7-RCj" firstAttribute="leading" secondItem="yOy-ji-80h" secondAttribute="leading" constant="20" id="5q7-sg-CdP"/>
                                                 <constraint firstItem="2r0-j7-h8v" firstAttribute="leading" secondItem="yOy-ji-80h" secondAttribute="leading" id="6oI-vx-5gb"/>
+                                                <constraint firstItem="uf9-Kf-G4f" firstAttribute="centerY" secondItem="yOy-ji-80h" secondAttribute="centerY" id="AFI-oc-GBM"/>
                                                 <constraint firstAttribute="trailing" secondItem="2r0-j7-h8v" secondAttribute="trailing" id="D9u-Fe-yVV"/>
                                                 <constraint firstItem="v4A-Mn-CYW" firstAttribute="leading" secondItem="yOy-ji-80h" secondAttribute="leading" id="ODL-CX-zuD"/>
-                                                <constraint firstAttribute="trailing" secondItem="Fm1-j7-RCj" secondAttribute="trailing" constant="20" id="bMU-rh-IXp"/>
+                                                <constraint firstItem="Fm1-j7-RCj" firstAttribute="centerX" secondItem="yOy-ji-80h" secondAttribute="centerX" id="Ua1-9W-Ozl"/>
+                                                <constraint firstItem="Fm1-j7-RCj" firstAttribute="centerY" secondItem="yOy-ji-80h" secondAttribute="centerY" id="Y92-aG-TEI"/>
                                                 <constraint firstAttribute="trailing" secondItem="v4A-Mn-CYW" secondAttribute="trailing" id="g61-Sg-Wtp"/>
-                                                <constraint firstAttribute="trailing" secondItem="uf9-Kf-G4f" secondAttribute="trailing" constant="20" id="iv6-dQ-7TU"/>
-                                                <constraint firstItem="Fm1-j7-RCj" firstAttribute="top" secondItem="yOy-ji-80h" secondAttribute="top" constant="20" id="lIL-22-MgH"/>
-                                                <constraint firstAttribute="bottom" secondItem="Fm1-j7-RCj" secondAttribute="bottom" constant="20" id="pSn-SB-o2R"/>
                                                 <constraint firstItem="2r0-j7-h8v" firstAttribute="top" secondItem="yOy-ji-80h" secondAttribute="top" id="rC2-yC-yeM"/>
-                                                <constraint firstAttribute="bottom" secondItem="uf9-Kf-G4f" secondAttribute="bottom" constant="20" id="ruR-Vh-ggc"/>
-                                                <constraint firstItem="uf9-Kf-G4f" firstAttribute="leading" secondItem="yOy-ji-80h" secondAttribute="leading" constant="20" id="vuw-Nb-xMm"/>
-                                                <constraint firstItem="uf9-Kf-G4f" firstAttribute="top" secondItem="yOy-ji-80h" secondAttribute="top" constant="20" id="xwN-aX-XKI"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="128" height="128"/>
                                         <connections>
                                             <outlet property="containerView" destination="Fm1-j7-RCj" id="0zr-BU-Wbb"/>
                                             <outlet property="icon" destination="2r0-j7-h8v" id="8kr-03-6rz"/>
