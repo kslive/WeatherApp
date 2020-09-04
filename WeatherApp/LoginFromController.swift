@@ -14,6 +14,9 @@ class LoginFromController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var loginTitleView: UILabel!
+    @IBOutlet weak var passwordTitleView: UILabel!
+    @IBOutlet weak var titleView: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,11 @@ class LoginFromController: UIViewController {
         
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrollView.addGestureRecognizer(hideKeyboardGesture)
+        
+        animateTitlesAppearing()
+        animateTitleAppearing()
+        animateFieldsAppearing()
+        animateAuthButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +72,11 @@ class LoginFromController: UIViewController {
         }
     }
     
+    @IBAction func pressedSingInButton(_ sender: UIButton) {
+    }
+    
+// MARK: - Help Function
+    
     func showLoginError() {
         
         let alert = UIAlertController(title: "Error!",
@@ -76,8 +89,64 @@ class LoginFromController: UIViewController {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-
-    @IBAction func pressedSingInButton(_ sender: UIButton) {
+    
+    func animateTitlesAppearing() {
+        
+        let offset = view.bounds.width
+        loginTitleView.transform = CGAffineTransform(translationX: -offset, y: 0)
+        passwordTitleView.transform = CGAffineTransform(translationX: offset, y: 0)
+        
+        UIView.animate(withDuration: 1,
+                       delay: 1,
+                       options: .curveEaseOut,
+                       animations: { [weak self] in
+                        self?.loginTitleView.transform = .identity
+                        self?.passwordTitleView.transform = .identity
+            },
+                       completion: nil)
+    }
+    
+    func animateTitleAppearing() {
+        
+        self.titleView.transform = CGAffineTransform(translationX: 0, y: -self.view.bounds.height / 2)
+        
+        UIView.animate(withDuration: 1,
+                       delay: 1,
+                       options: .curveEaseOut,
+                       animations: { [weak self] in
+                        self?.titleView.transform = .identity
+        },
+                       completion: nil)
+    }
+    
+    func animateFieldsAppearing() {
+        
+        let fadeInAnimation = CABasicAnimation(keyPath: "opacity")
+        
+        fadeInAnimation.fromValue = 0
+        fadeInAnimation.toValue = 1
+        fadeInAnimation.duration = 1
+        fadeInAnimation.beginTime = CACurrentMediaTime() + 1
+        fadeInAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        fadeInAnimation.fillMode = CAMediaTimingFillMode.backwards
+        
+        self.loginTextField.layer.add(fadeInAnimation, forKey: nil)
+        self.passwordTextField.layer.add(fadeInAnimation, forKey: nil)
+    }
+    
+    func animateAuthButton() {
+        
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.stiffness = 200
+        animation.mass = 2
+        animation.duration = 2
+        animation.beginTime = CACurrentMediaTime() + 1
+        animation.fillMode = CAMediaTimingFillMode.backwards
+        
+        self.signInButton.layer.add(animation, forKey: nil)
     }
 }
 
