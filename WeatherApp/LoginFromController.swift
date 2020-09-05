@@ -9,6 +9,8 @@
 import UIKit
 
 class LoginFromController: UIViewController {
+    
+    var interactiveAnimator: UIViewPropertyAnimator!
 
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -29,10 +31,8 @@ class LoginFromController: UIViewController {
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrollView.addGestureRecognizer(hideKeyboardGesture)
         
-        animateTitlesAppearing()
-        animateTitleAppearing()
-        animateFieldsAppearing()
-        animateAuthButton()
+        let recognizer = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
+        self.view.addGestureRecognizer(recognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +40,11 @@ class LoginFromController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden​(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        animateTitlesAppearing()
+        animateTitleAppearing()
+        animateFieldsAppearing()
+        animateAuthButton()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,6 +66,12 @@ class LoginFromController: UIViewController {
         return checkResult
     }
     
+    
+    @IBAction func pressedSingInButton(_ sender: UIButton) {
+    }
+    
+// MARK: - Help Function
+    
     func checkUserData() -> Bool {
         let login = loginTextField.text
         let password = passwordTextField.text
@@ -71,11 +82,6 @@ class LoginFromController: UIViewController {
             return false
         }
     }
-    
-    @IBAction func pressedSingInButton(_ sender: UIButton) {
-    }
-    
-// MARK: - Help Function
     
     func showLoginError() {
         
@@ -92,46 +98,59 @@ class LoginFromController: UIViewController {
     
     func animateTitlesAppearing() {
         
-        let offset = view.bounds.width
-        loginTitleView.transform = CGAffineTransform(translationX: -offset, y: 0)
-        passwordTitleView.transform = CGAffineTransform(translationX: offset, y: 0)
+        let offset = abs(loginTitleView.frame.midY - passwordTitleView.frame.midY)
+        loginTitleView.transform = CGAffineTransform(translationX: 0, y: offset)
+        passwordTitleView.transform = CGAffineTransform(translationX: 0, y: -offset)
         
-        UIView.animate(withDuration: 1,
-                       delay: 1,
-                       options: .curveEaseOut,
-                       animations: { [weak self] in
-                        self?.loginTitleView.transform = .identity
-                        self?.passwordTitleView.transform = .identity
-            },
-                       completion: nil)
+        UIView.animateKeyframes(withDuration: 1,
+                                delay: 1,
+                                options: .calculationModePaced,
+                                animations: {
+                                    UIView.addKeyframe(withRelativeStartTime: 0,
+                                                       relativeDuration: 0.5) {
+                                                        self.loginTitleView.transform = CGAffineTransform(translationX: 150, y: 50)
+                                                        self.passwordTitleView.transform = CGAffineTransform(translationX: -150, y: -50)
+                                    }
+                                    UIView.addKeyframe(withRelativeStartTime: 0.5,
+                                                       relativeDuration: 0.5) {
+                                                        self.loginTitleView.transform = .identity
+                                                        self.passwordTitleView.transform = .identity
+                                    }
+        },
+                                completion: nil)
     }
     
     func animateTitleAppearing() {
         
         self.titleView.transform = CGAffineTransform(translationX: 0, y: -self.view.bounds.height / 2)
         
-        UIView.animate(withDuration: 1,
-                       delay: 1,
-                       options: .curveEaseOut,
-                       animations: { [weak self] in
-                        self?.titleView.transform = .identity
-        },
-                       completion: nil)
+        let animator = UIViewPropertyAnimator(duration: 1, dampingRatio: 0.5) {
+            self.titleView.transform = .identity
+        }
+        
+        animator.startAnimation(afterDelay: 1)
     }
     
     func animateFieldsAppearing() {
         
         let fadeInAnimation = CABasicAnimation(keyPath: "opacity")
-        
         fadeInAnimation.fromValue = 0
         fadeInAnimation.toValue = 1
-        fadeInAnimation.duration = 1
-        fadeInAnimation.beginTime = CACurrentMediaTime() + 1
-        fadeInAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        fadeInAnimation.fillMode = CAMediaTimingFillMode.backwards
         
-        self.loginTextField.layer.add(fadeInAnimation, forKey: nil)
-        self.passwordTextField.layer.add(fadeInAnimation, forKey: nil)
+        let scaleAnimation = CASpringAnimation(keyPath: "transform.scale")
+        scaleAnimation.fromValue = 0
+        scaleAnimation.toValue = 1
+        scaleAnimation.stiffness = 150
+        scaleAnimation.mass = 2
+        
+        let animationsGroup = CAAnimationGroup()
+        animationsGroup.duration = 1
+        animationsGroup.beginTime = CACurrentMediaTime() + 1
+        animationsGroup.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        animationsGroup.animations = [fadeInAnimation, scaleAnimation]
+        
+        self.loginTextField.layer.add(animationsGroup, forKey: nil)
+        self.passwordTextField.layer.add(animationsGroup, forKey: nil)
     }
     
     func animateAuthButton() {
@@ -177,5 +196,30 @@ extension LoginFromController {
     
     @objc func hideKeyboard() {
         self.scrollView.endEditing(true)
+    }
+    
+    @objc func onPan(_ recognizer: UIPanGestureRecognizer) {
+        
+        switch recognizer.state {
+        case .began:
+            interactiveAnimator.startAnimation()
+            
+            interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.5, animations: {
+                self.signInButton.transform = CGAffineTransform(translationX: 0, y: 150)
+            })
+        case .changed:
+            let translation = recognizer.translation(in: self.view)
+            interactiveAnimator.fractionComplete = translation.y / 100
+        case .ended:
+            interactiveAnimator.stopAnimation(true)
+            
+            interactiveAnimator.addAnimations {
+                self.signInButton.transform = .identity
+            }
+            
+            interactiveAnimator.startAnimation()
+        default:
+            return
+        }
     }
 }
