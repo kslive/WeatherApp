@@ -17,6 +17,7 @@
 		6B26D3E024EEC0FF00F44938 /* WeekdayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B26D3DF24EEC0FF00F44938 /* WeekdayPicker.swift */; };
 		6B26D3E224EED0D700F44938 /* WeatherViewController+CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B26D3E124EED0D700F44938 /* WeatherViewController+CollectionViewController.swift */; };
 		6B4FC7AC24FCE96100960E98 /* WeatherCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4FC7AB24FCE96100960E98 /* WeatherCollectionViewLayout.swift */; };
+		6B55C447250397DF009E9241 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B55C446250397DF009E9241 /* LoadViewController.swift */; };
 		6B978B3B24D1589F0073AA20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B978B3A24D1589F0073AA20 /* AppDelegate.swift */; };
 		6B978B3D24D1589F0073AA20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B978B3C24D1589F0073AA20 /* SceneDelegate.swift */; };
 		6B978B4224D1589F0073AA20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B978B4024D1589F0073AA20 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		6B26D3DF24EEC0FF00F44938 /* WeekdayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayPicker.swift; sourceTree = "<group>"; };
 		6B26D3E124EED0D700F44938 /* WeatherViewController+CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherViewController+CollectionViewController.swift"; sourceTree = "<group>"; };
 		6B4FC7AB24FCE96100960E98 /* WeatherCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewLayout.swift; sourceTree = "<group>"; };
+		6B55C446250397DF009E9241 /* LoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
 		6B978B3724D1589F0073AA20 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B978B3A24D1589F0073AA20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B978B3C24D1589F0073AA20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,22 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6B55C4442503977C009E9241 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				6B978B4E24D15BF40073AA20 /* LoginFromController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		6B55C44525039789009E9241 /* LoadView */ = {
+			isa = PBXGroup;
+			children = (
+				6B55C446250397DF009E9241 /* LoadViewController.swift */,
+			);
+			path = LoadView;
+			sourceTree = "<group>";
+		};
 		6B978B2E24D1589F0073AA20 = {
 			isa = PBXGroup;
 			children = (
@@ -134,13 +152,14 @@
 		6B978B3924D1589F0073AA20 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				6B55C44525039789009E9241 /* LoadView */,
+				6B55C4442503977C009E9241 /* Auth */,
 				6B0AC6A524D60B93008E4637 /* Weather */,
 				6B0AC6A024D5ECBE008E4637 /* MyCities */,
 				6B0AC69B24D5E831008E4637 /* AllCities */,
 				6B26D3E324EED18100F44938 /* Custom UI-compoments */,
 				6B26D3E424EED27B00F44938 /* Views */,
 				6B26D3E524EED30500F44938 /* Supporting Files */,
-				6B978B4E24D15BF40073AA20 /* LoginFromController.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -218,6 +237,7 @@
 			files = (
 				6B26D3E224EED0D700F44938 /* WeatherViewController+CollectionViewController.swift in Sources */,
 				6B0AC6A224D5ECEB008E4637 /* MyCitiesCell.swift in Sources */,
+				6B55C447250397DF009E9241 /* LoadViewController.swift in Sources */,
 				6B0AC6A424D5ECFF008E4637 /* MyCitiesController.swift in Sources */,
 				6B26D3DE24EEB10600F44938 /* GradientView.swift in Sources */,
 				6B0AC6A924D60BC8008E4637 /* WeatherCell.swift in Sources */,

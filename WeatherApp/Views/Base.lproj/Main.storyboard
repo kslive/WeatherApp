@@ -34,7 +34,7 @@
                                                 <state key="normal" title="SIGN IN"/>
                                                 <connections>
                                                     <action selector="pressedSingInButton:" destination="HiR-xT-CBC" eventType="touchUpInside" id="ZGn-DQ-0U4"/>
-                                                    <segue destination="eR1-ZA-RnW" kind="presentation" modalPresentationStyle="fullScreen" id="oOw-nZ-DAF"/>
+                                                    <segue destination="VXF-tc-HDK" kind="show" id="HPP-qP-oBp"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tPd-3Y-X6R">
@@ -127,12 +127,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CvN-0O-RCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="82"/>
+            <point key="canvasLocation" x="-274" y="82"/>
+        </scene>
+        <!--Load View Controller-->
+        <scene sceneID="v2g-iS-UkP">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="VXF-tc-HDK" customClass="LoadViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0jS-07-xqd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osi-k5-7IT" customClass="GradientView" customModule="WeatherApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Osi-k5-7IT" secondAttribute="bottom" id="IsY-yL-UFs"/>
+                            <constraint firstItem="Osi-k5-7IT" firstAttribute="trailing" secondItem="w6c-gE-ata" secondAttribute="trailing" id="ZE3-2V-Tvh"/>
+                            <constraint firstItem="Osi-k5-7IT" firstAttribute="leading" secondItem="w6c-gE-ata" secondAttribute="leading" id="vY4-8x-ncJ"/>
+                            <constraint firstItem="Osi-k5-7IT" firstAttribute="top" secondItem="0jS-07-xqd" secondAttribute="top" id="wVm-fV-T4b"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="w6c-gE-ata"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JrG-xu-Obb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q60-Ub-5cU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="447.82608695652175" y="81.696428571428569"/>
         </scene>
         <!--City selection-->
         <scene sceneID="zSx-qP-ZYa">
             <objects>
-                <tableViewController id="tzD-ee-Izk" customClass="AllCitiesController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="tzD-ee-Izk" customClass="AllCitiesController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0di-J2-xio">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,7 +270,7 @@
         <!--My Cities Controller-->
         <scene sceneID="RyH-JC-uCN">
             <objects>
-                <tableViewController id="rW6-wg-id3" customClass="MyCitiesController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="rW6-wg-id3" customClass="MyCitiesController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QZc-xX-o1U">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -286,7 +322,7 @@
         <!--Weather View Controller-->
         <scene sceneID="Yek-Jo-gcf">
             <objects>
-                <viewController id="QXt-iz-BBq" customClass="WeatherViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="QXt-iz-BBq" customClass="WeatherViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mjh-g8-evM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -403,7 +439,7 @@
         <!--Navigation Controller-->
         <scene sceneID="3aN-kt-j75">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eR1-ZA-RnW" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="eR1-ZA-RnW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="PE2-1W-W5J"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wXs-Gx-HN9">
