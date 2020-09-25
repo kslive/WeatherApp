@@ -10,6 +10,14 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
+    let weatherService = WeatherService()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        weatherService.loadWeatherData(city: "Moscow")
+    }
+    
     @IBOutlet weak var weekdayPickerView: WeekdayPicker!
 }
 
