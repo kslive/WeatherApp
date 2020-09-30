@@ -431,6 +431,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Es6-h7-SXB"/>
                     <connections>
+                        <outlet property="collectionView" destination="rVm-o3-uL6" id="21a-AW-5hN"/>
                         <outlet property="weekdayPickerView" destination="nAD-Lv-rNd" id="QaJ-Ln-IEC"/>
                     </connections>
                 </viewController>
