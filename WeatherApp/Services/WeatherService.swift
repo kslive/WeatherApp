@@ -38,6 +38,7 @@ class WeatherService: Object {
         }
     }
     
+    
     func saveWeatherData(_ weathers: [Weather]) {
         
         do {
