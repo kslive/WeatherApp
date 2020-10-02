@@ -18,14 +18,15 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return weathers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
-        cell.weather.text = "30 C°"
-        cell.time.text = "20.02.2020 20:02"
+        let weather = weathers[indexPath.row]
+        
+        cell.configure(withWeather: weather)
         
         return cell
     }
