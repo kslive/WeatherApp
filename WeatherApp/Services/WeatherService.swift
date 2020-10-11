@@ -32,20 +32,25 @@ class WeatherService: Object {
             
             let weather = try! JSONDecoder().decode(WeatherResponse.self, from: data).list
             
-            self?.saveWeatherData(weather)
+            weather.forEach({ $0.city = city })
+            
+            self?.saveWeatherData(weather, city: city)
             
             completion(weather)
         }
     }
     
     
-    func saveWeatherData(_ weathers: [Weather]) {
+    func saveWeatherData(_ weathers: [Weather], city: String) {
         
         do {
             
             let realm = try Realm()
             
+            let oldWeathers = realm.objects(Weather.self).filter("city == %@", city)
+            
             realm.beginWrite()
+            realm.delete(oldWeathers)
             realm.add(weathers)
             
             try realm.commitWrite()

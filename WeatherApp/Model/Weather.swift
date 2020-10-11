@@ -19,6 +19,7 @@ class Weather: Object, Decodable {
     @objc dynamic var weatherIcon = ""
     @objc dynamic var windSpeed = 0.0
     @objc dynamic var windDegrees = 0.0
+    @objc dynamic var city = ""
     
     enum CodingKeys: String, CodingKey {
         
@@ -66,5 +67,7 @@ class Weather: Object, Decodable {
         let windValue = try value.nestedContainer(keyedBy: WindKeys.self, forKey: .wind)
         self.windSpeed = try windValue.decode(Double.self, forKey: .speed)
         self.windDegrees = try windValue.decode(Double.self, forKey: .deg)
+        
+        self.city = city
     }
 }

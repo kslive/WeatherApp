@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class WeatherViewController: UIViewController {
     
@@ -15,18 +16,32 @@ class WeatherViewController: UIViewController {
     var weathers = [Weather]()
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var weekdayPickerView: WeekdayPicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         weatherService.loadWeatherData(city: "Moscow") { [weak self] weathers in
             
-            self?.weathers = weathers
+            self?.loadData()
+            
             self?.collectionView.reloadData()
         }
     }
     
-    @IBOutlet weak var weekdayPickerView: WeekdayPicker!
+    func loadData() {
+        
+        do {
+            let realm = try Realm()
+            let weathers = realm.objects(Weather.self).filter("city == %@", "Moscow")
+            
+            self.weathers = Array(weathers)
+        } catch {
+            
+            print(error)
+        }
+    }
+    
 }
 
 
