@@ -125,24 +125,21 @@ class MyCitiesController: UITableViewController {
     }
 
     
-    @IBAction func addCity(segue: UIStoryboardSegue) {
-        
-        if segue.identifier == "addCity" {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toWeatherViewController",
+           let cell = sender as? UITableViewCell {
             
-            guard let allCitiesController = segue.source as? AllCitiesController else { return }
+            let ctrl = segue.destination as! WeatherViewController
             
-            if let indexPath = allCitiesController.tableView.indexPathForSelectedRow {
+            if let indexPath = tableView.indexPath(for: cell) {
                 
-                let city = allCitiesController.cities[indexPath.row]
-                
-                if !cities.contains(city.title) {
-                    cities.append(city.title)
-                }
-                tableView.reloadData()
+                ctrl.cityName = cityes![indexPath.row].name
             }
         }
     }
     
     @IBAction func addButton(_ sender: Any) {
+        
+        showAddCityForm()
     }
 }

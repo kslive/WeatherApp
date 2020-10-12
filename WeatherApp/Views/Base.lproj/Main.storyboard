@@ -198,7 +198,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="myCityName" destination="8hN-Du-e28" id="Tdq-Oq-Fme"/>
-                                    <segue destination="QXt-iz-BBq" kind="show" id="zSH-As-fDb"/>
+                                    <segue destination="QXt-iz-BBq" kind="show" identifier="toWeatherViewController" id="zSH-As-fDb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
