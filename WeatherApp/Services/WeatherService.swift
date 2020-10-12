@@ -15,7 +15,7 @@ class WeatherService: Object {
     let baseUrl = "http://api.openweathermap.org"
     let apiKey = "92cabe9523da26194b02974bfcd50b7e"
     
-    func loadWeatherData(city: String, completion: @escaping ([Weather]) -> ()) {
+    func loadWeatherData(city: String) {
         
         let path = "/data/2.5/forecast"
         let parameters: Parameters = [
@@ -32,11 +32,9 @@ class WeatherService: Object {
             
             let weather = try! JSONDecoder().decode(WeatherResponse.self, from: data).list
             
-            weather.forEach({ $0.city = city })
+            weather.forEach { $0.city = city }
             
             self?.saveWeatherData(weather, city: city)
-            
-            completion(weather)
         }
     }
     
@@ -47,11 +45,13 @@ class WeatherService: Object {
             
             let realm = try Realm()
             
-            let oldWeathers = realm.objects(Weather.self).filter("city == %@", city)
+            guard let city = realm.object(ofType: City.self, forPrimaryKey: city) else { return }
+            let oldWeathers = city.weathers
             
             realm.beginWrite()
             realm.delete(oldWeathers)
-            realm.add(weathers)
+            
+            city.weathers.append(objectsIn: weathers)
             
             try realm.commitWrite()
         } catch {
