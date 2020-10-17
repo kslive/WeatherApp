@@ -87,8 +87,8 @@ class LoginFromController: UIViewController {
         
         let alert = UIAlertController(title: "Error!",
                                       message: """
-                                                           Your Login: Eugene
-                                                           Your Password: 000
+                                                           Your Login: ksllive@ya.ru
+                                                           Your Password: 000000
                                                            """,
                                       preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .cancel)
