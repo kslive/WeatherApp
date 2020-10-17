@@ -8,5 +8,6 @@ Geekbrains. Клиент для сервиса openweathermap.org. Прилож�
 3. Анимации view, layer а так же переходов между экранами. 
 4. Работа с API ( Alamofire ). 
 5. Realm/Realm Notification
+6. Firebase.
 
 
