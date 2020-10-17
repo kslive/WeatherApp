@@ -7,5 +7,8 @@ target 'WeatherApp' do
 
   pod 'Alamofire', '~> 5.2'
   pod 'RealmSwift'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'FirebaseFirestore'
 
 end

@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginFromController: UIViewController {
     
+    private var handle: AuthStateDidChangeListenerHandle!
     var interactiveAnimator: UIViewPropertyAnimator!
 
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var logInButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var loginTitleView: UILabel!
     @IBOutlet weak var passwordTitleView: UILabel!
@@ -22,12 +25,7 @@ class LoginFromController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        signInButton.isEnabled = false
-        
-        loginTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
-        passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
-        
+                
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrollView.addGestureRecognizer(hideKeyboardGesture)
         
@@ -41,10 +39,26 @@ class LoginFromController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden​(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        handle = Auth.auth().addStateDidChangeListener({ [weak self] auth, user in
+            
+            if user != nil {
+                
+                self?.performSegue(withIdentifier: "Log In", sender: nil)
+                self?.loginTextField.text = nil
+                self?.passwordTextField.text = nil
+            }
+        })
+        
         animateTitlesAppearing()
         animateTitleAppearing()
         animateFieldsAppearing()
         animateAuthButton()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        Auth.auth().removeStateDidChangeListener(handle)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -57,41 +71,75 @@ class LoginFromController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
-        let checkResult = checkUserData()
-        
-        if !checkResult {
-            showLoginError()
-        }
-        
-        return checkResult
+        return true
     }
     
     
-    @IBAction func pressedSingInButton(_ sender: UIButton) {
+    @IBAction func pressedLogInButton(_ sender: UIButton) {
+        
+        guard let email = loginTextField.text,
+              let password = passwordTextField.text,
+              email.count > 0,
+              password.count > 0 else {
+            self.showAlert(title: "Error", message: "Login/password is not entered")
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
+            
+            if let error = error, user == nil {
+                self?.showAlert(title: "Error", message: error.localizedDescription)
+            }
+        }
+    }
+    
+    @IBAction func pressedSignInButton(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Register", message: "Register", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+        
+            guard let emailTextField = alert.textFields?[0],
+                  let passwordTextField = alert.textFields?[1],
+                  let password = passwordTextField.text,
+                  let email = emailTextField.text else { return }
+            
+            Auth.auth().createUser(withEmail: email, password: password) { [weak self] user, error in
+                
+                if let error = error {
+                    self?.showAlert(title: "Error", message: error.localizedDescription)
+                } else {
+                    Auth.auth().signIn(withEmail: email, password: password)
+                }
+            }
+        }
+        
+        alert.addTextField { textEmail in
+            
+            textEmail.placeholder = "Enter your email"
+        }
+        
+        alert.addTextField { textPassword in
+            
+            textPassword.isSecureTextEntry = true
+            textPassword.placeholder = "Enter Password"
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
     }
     
 // MARK: - Help Function
-    
-    func checkUserData() -> Bool {
-        let login = loginTextField.text
-        let password = passwordTextField.text
         
-        if login == "Eugene" && password == "000" {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func showLoginError() {
+    func showAlert(title: String, message: String) {
         
-        let alert = UIAlertController(title: "Error!",
-                                      message: """
-                                                           Your Login: Eugene
-                                                           Your Password: 000
-                                                           """,
+        let alert = UIAlertController(title: title,
+                                      message: message,
                                       preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .cancel)
+        
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
@@ -165,19 +213,11 @@ class LoginFromController: UIViewController {
         animation.beginTime = CACurrentMediaTime() + 1
         animation.fillMode = CAMediaTimingFillMode.backwards
         
-        self.signInButton.layer.add(animation, forKey: nil)
+        self.logInButton.layer.add(animation, forKey: nil)
     }
 }
 
 extension LoginFromController {
-    
-    @objc func textFieldDidChange(textField: UITextField) {
-        if loginTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            signInButton.isEnabled = false
-        } else {
-            signInButton.isEnabled = true
-        }
-    }
     
     @objc func keyboardWasShown(notification: Notification) {
         
@@ -205,7 +245,7 @@ extension LoginFromController {
             interactiveAnimator.startAnimation()
             
             interactiveAnimator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.5, animations: {
-                self.signInButton.transform = CGAffineTransform(translationX: 0, y: 150)
+                self.logInButton.transform = CGAffineTransform(translationX: 0, y: 150)
             })
         case .changed:
             let translation = recognizer.translation(in: self.view)
@@ -214,7 +254,7 @@ extension LoginFromController {
             interactiveAnimator.stopAnimation(true)
             
             interactiveAnimator.addAnimations {
-                self.signInButton.transform = .identity
+                self.logInButton.transform = .identity
             }
             
             interactiveAnimator.startAnimation()
