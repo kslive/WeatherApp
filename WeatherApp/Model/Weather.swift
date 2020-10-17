@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import FirebaseFirestore
 
 class Weather: Object, Decodable {
     
@@ -46,6 +47,12 @@ class Weather: Object, Decodable {
         
         case speed
         case deg
+    }
+    
+    func toFirestore() -> [String: Any ] {
+        return [
+            String(format: "$0.f", date) : temp
+        ]
     }
     
     convenience required init(from decoder: Decoder) throws {

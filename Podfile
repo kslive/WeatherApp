@@ -9,5 +9,6 @@ target 'WeatherApp' do
   pod 'RealmSwift'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'FirebaseFirestore'
 
 end

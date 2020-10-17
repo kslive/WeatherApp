@@ -35,8 +35,7 @@
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
                                                 <state key="normal" title="SIGN IN"/>
                                                 <connections>
-                                                    <action selector="pressedSingInButton:" destination="HiR-xT-CBC" eventType="touchUpInside" id="ZGn-DQ-0U4"/>
-                                                    <segue destination="VXF-tc-HDK" kind="show" id="HPP-qP-oBp"/>
+                                                    <action selector="pressedSignInButton:" destination="HiR-xT-CBC" eventType="touchUpInside" id="Vj8-vt-gUA"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tPd-3Y-X6R">
@@ -51,7 +50,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Eugene" placeholder=" Enter Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NGQ-pm-cfO">
                                                         <rect key="frame" x="0.0" y="38" width="414" height="37.666666666666657"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rl-Ke-YEr">
                                                         <rect key="frame" x="0.0" y="83.666666666666686" width="414" height="30"/>
@@ -72,10 +71,21 @@
                                                     <constraint firstAttribute="trailing" secondItem="3rl-Ke-YEr" secondAttribute="trailing" id="ijr-Z9-NzN"/>
                                                 </constraints>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pL-1O-zSz">
+                                                <rect key="frame" x="8" y="726" width="398" height="42"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
+                                                <state key="normal" title="LOG IN"/>
+                                                <connections>
+                                                    <action selector="pressedLogInButton:" destination="HiR-xT-CBC" eventType="touchUpInside" id="Lu1-xb-Kgb"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="Hwp-pk-cfC" firstAttribute="top" secondItem="9pL-1O-zSz" secondAttribute="bottom" constant="8" symbolic="YES" id="0b7-4P-CfR"/>
                                             <constraint firstItem="tPd-3Y-X6R" firstAttribute="centerY" secondItem="G94-cu-n5Y" secondAttribute="centerY" id="BVU-jQ-ljL"/>
                                             <constraint firstItem="tPd-3Y-X6R" firstAttribute="centerX" secondItem="G94-cu-n5Y" secondAttribute="centerX" id="EPJ-Zu-NPc"/>
+                                            <constraint firstAttribute="trailing" secondItem="9pL-1O-zSz" secondAttribute="trailing" constant="8" id="IHu-ZU-F4i"/>
+                                            <constraint firstItem="9pL-1O-zSz" firstAttribute="leading" secondItem="G94-cu-n5Y" secondAttribute="leading" constant="8" id="Pj3-pt-jbQ"/>
                                             <constraint firstItem="tPd-3Y-X6R" firstAttribute="leading" secondItem="G94-cu-n5Y" secondAttribute="leading" id="dTI-7z-lWW"/>
                                             <constraint firstAttribute="trailing" secondItem="tPd-3Y-X6R" secondAttribute="trailing" id="z5s-5f-65w"/>
                                         </constraints>
@@ -118,13 +128,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="GWD-3n-020"/>
                     <connections>
+                        <outlet property="logInButton" destination="9pL-1O-zSz" id="bxD-2a-nva"/>
                         <outlet property="loginTextField" destination="NGQ-pm-cfO" id="sJe-6k-1Le"/>
                         <outlet property="loginTitleView" destination="g7a-XC-Zgh" id="7OE-4j-YbL"/>
                         <outlet property="passwordTextField" destination="XzO-hx-uwR" id="KIn-pi-Uah"/>
                         <outlet property="passwordTitleView" destination="3rl-Ke-YEr" id="Qan-Bv-Kmt"/>
                         <outlet property="scrollView" destination="7I8-se-4r7" id="3ef-CG-m38"/>
-                        <outlet property="signInButton" destination="Hwp-pk-cfC" id="cLt-c9-heF"/>
+                        <outlet property="signInButton" destination="Hwp-pk-cfC" id="NrV-NH-yGA"/>
                         <outlet property="titleView" destination="nfE-bw-gOY" id="4jE-7d-MKs"/>
+                        <segue destination="VXF-tc-HDK" kind="show" identifier="Log In" id="bCV-jE-Wn0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CvN-0O-RCI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -208,6 +220,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="4yk-7l-c7e">
+                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="XmC-rj-B2w">
+                            <connections>
+                                <action selector="logOutButtonPressed:" destination="rW6-wg-id3" id="rh2-yP-Tlh"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ohf-Uc-EjI">
                             <connections>
                                 <action selector="addButton:" destination="rW6-wg-id3" id="ayy-nt-rhg"/>

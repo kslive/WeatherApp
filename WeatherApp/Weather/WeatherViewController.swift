@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import FirebaseFirestore
 
 class WeatherViewController: UIViewController {
     
@@ -56,6 +57,28 @@ class WeatherViewController: UIViewController {
                 }, completion: nil)
             case .error(let error):
                 fatalError("\(error)")
+            }
+        }
+    }
+    
+    private func saveToFirestore(_ weathers: [Weather]) {
+        
+        let database = Firestore.firestore()
+        let settings = database.settings
+        
+        settings.areTimestampsInSnapshotsEnabled = true
+        database.settings = settings
+        
+        let weathersToSend = weathers
+            .map { $0.toFirestore() }
+            .reduce([:]) { $0.merging($1) { (current, _)  in current } }
+        
+        database.collection("forecast").document(self.cityName).setData(weathersToSend, merge: true) { error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("data saved")
             }
         }
     }
