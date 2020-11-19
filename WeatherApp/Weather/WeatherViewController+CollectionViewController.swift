@@ -25,6 +25,8 @@ extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDel
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
         let weather = weathers[indexPath.row]
+    
+        cell.icon.image = photoService?.photo(atIndexpath: indexPath, byUrl: weather.url)
         
         cell.configure(withWeather: weather)
         

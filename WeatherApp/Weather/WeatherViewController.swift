@@ -17,6 +17,7 @@ class WeatherViewController: UIViewController {
     var weathers: List<Weather>!
     var token: NotificationToken?
     var cityName = ""
+    var photoService: PhotoService?
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var weekdayPickerView: WeekdayPicker!
