@@ -12,6 +12,10 @@ import FirebaseFirestore
 
 class Weather: Object, Decodable {
     
+    var url: String {
+        return "http://openweathermap.org/img/w/\(weatherIcon).png"
+    }
+    
     @objc dynamic var date = 0.0
     @objc dynamic var temp = 0.0
     @objc dynamic var pressure = 0.0
